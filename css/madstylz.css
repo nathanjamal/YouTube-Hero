@@ -1,0 +1,125 @@
+﻿*{ margin:0px; padding:0px;}
+
+body {text-align: center; overflow: hidden;}
+ a img{ border: none;}
+ 
+.inlineBlock{
+display:-moz-inline-stack;
+display:inline-block;
+zoom:1;
+*display:inline;}
+
+.showNone{height: 0px;overflow: hidden;}
+.hidden{ display: none;}
+
+.aRow{width: 100%;margin-bottom:50px;}
+
+#vidRow{ height: 295px;}#topRow{ margin-top: 15px;}
+
+.playerWindow{display: inline;}
+
+#myytplayer{margin-right:3%;}
+
+#myytplayer,#myytplayer2{ z-index: 5;}
+
+#slider{width: 400px; z-index: 5;}
+
+/*.ui-slider-handle,.ui-state-default,.ui-corner-all { min-height: 50px; background-repeat: repeat-y;}*/
+
+#searchBox{
+width: 30%; max-width: 350px; height: 48px;
+border: solid 1px silver;
+position: relative;
+margin-left: 50px;margin-right: 50px;
+text-align: left;
+}
+
+#searchField{
+line-height: 48px; width: 75%; max-width: 275px;
+border: none;background-color: White;
+font-size: 26px; vertical-align: bottom;}
+
+.lilMsg{font-family:'Lucida Sans Unicode', Lucida Console Grande;font-size:11px; position: absolute; bottom: -28px; left: 0px;}
+
+#searchButton{ position: absolute; top: 0px; right: 0px; cursor:pointer;}
+
+.dropBox{
+width: 20%; max-width: 250px; height: 20px; padding-top:26px;padding-bottom:26px; vertical-align:top; font-family: Arial !important;
+}
+
+.dropped{
+border:solid 1px yellow;
+}
+
+.results{}
+
+#results{
+position: absolute;top: 55px;left: 7px;z-index: 100;
+width: 400px;}
+
+.listButtons{position: absolute;bottom: -16px;z-index: 101;
+font-family:Arial; font-size:15px; color:#ff0000; font-weight:bold;}
+a.listButtons:hover{ text-decoration: underline;}
+#more{left: 3px;}a#close{right: 70px;} a#close:hover{background-color:black;}
+
+#list{ position: relative; margin:0;padding:0; list-style: none;}
+
+#list li{
+  width: 330px; height: 40px;
+   padding: 0; margin: 2px 0;
+    border: solid 1px gray;-moz-border-radius: 5px;-webkit-border-radius: 5px;
+    text-align: center;font-family: 'Lucida Sans Unicode' , Lucida Console Grande;font-size: 13px;color: #ff0000;font-weight: bold;
+    list-style: none; overflow: hidden;
+    background: url('../img/boxMenu.png') repeat left top;
+    cursor: move;cursor: -moz-grab;
+}
+
+#list li img
+{ display: inline;
+float: left;
+}
+
+#list li p
+{ display: inline;
+float: left;
+margin: 0px 10px;
+line-height: 40px;
+}
+
+
+.feedback{
+position: absolute;
+width: 310px;
+height: 200px;
+background: silver;
+padding: 20px;
+right: 20px;
+bottom: -240px;
+z-index: 100;
+}
+
+#feedbackTab
+{ height: 24px;background: silver;
+    padding: 3px 6px;
+    right: 0px;top: -30px;position: absolute;
+    -moz-border-radius-topright: 5px; -moz-border-radius-topleft: 5px;
+     -webkit-border-top-left-radius:5px; -webkit-border-top-right-radius:5px;}
+
+#feedbackTab a{text-shadow: #444 1px 1px 0px; font-family: 'Lucida Sans Unicode', Lucida Grande; color: #FF0000; font-size: 18px; text-decoration: none;}
+#feedbackTab a:hover{text-shadow: #000 1px 1px 0px;}
+
+#feedbackArea{ padding: 10px; width: 290px;height: 130px; font-size:18px; font-family: Arial;}
+
+#feedbackSubmit{
+float:right; margin-top: 20px;
+    font-family: 'Lucida Sans Unicode', Lucida Grande;
+    font-weight:bold;
+    color: #000; text-decoration: none;
+}
+#eireally a{text-decoration: none;}
+#eireally{padding:10px; font-family: Arial;} #eireally p{font-family: Arial;}
+#crome{color: #0000FF; font-weight: bold;} #safari{color: Silver;font-weight: bold;} #firefox{color: #E76301;font-weight: bold;} #opera{color: #E60000;font-weight: bold;}
+
+a#waih{position:absolute; bottom: 6px; left:5px;text-decoration: none; width:140px; height:59px; text-align:left;}
+a#waih span{font-family:Times New Roman, Times New Roman, Serif; font-size:11px;color:#FF0000; letter-spacing:11px; position:absolute; bottom: -1px; left:2px; display:none;} 
+a#waih:hover span{display: block;text-decoration: none;} a#waih:visited span{text-decoration: none; color:#FF0000;}
