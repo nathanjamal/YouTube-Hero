@@ -62,11 +62,11 @@ font-family:Arial; font-size:15px; color:#ff0000; font-weight:bold;}
 a.listButtons:hover{ text-decoration: underline;}
 #more{left: 3px;}a#close{right: 70px;} a#close:hover{background-color:black;}
 
-#list{ position: relative; margin:0;padding:0; list-style: none;}
+#list{ position: relative; z-index:10; margin:0;padding:0; list-style: none;}
 
 #list li{
   width: 330px; height: 40px;
-   padding: 0; margin: 2px 0;
+   padding: 0; margin: 2px 0; position: relative; z-index:10;
     border: solid 1px gray;-moz-border-radius: 5px;-webkit-border-radius: 5px;
     text-align: center;font-family: 'Lucida Sans Unicode' , Lucida Console Grande;font-size: 13px;color: #ff0000;font-weight: bold;
     list-style: none; overflow: hidden;
@@ -116,8 +116,23 @@ float:right; margin-top: 20px;
     font-weight:bold;
     color: #000; text-decoration: none;
 }
-#eireally a{text-decoration: none;}
-#eireally{padding:10px; font-family: Arial;} #eireally p{font-family: Arial;}
+
+
+#eireally
+{
+    border: 1px solid #F0DE00;
+    width: 30%; max-width: 350px; 
+    height: 80px;
+    padding: 10px;
+    font-family: Arial;
+    background-color: #FFFFB3;
+    position:absolute; bottom: 6px; left:35%;
+     font-size:12px; display: none;
+    }
+    
+    #closeIEImg{position:absolute; top:4px; right:4px;}
+    
+#eireally a{text-decoration: none; font-size:12px;} #eireally p{font-family: Arial; font-size:12px;}
 #crome{color: #0000FF; font-weight: bold;} #safari{color: Silver;font-weight: bold;} #firefox{color: #E76301;font-weight: bold;} #opera{color: #E60000;font-weight: bold;}
 
 a#waih{position:absolute; bottom: 6px; left:5px;text-decoration: none; width:140px; height:59px; text-align:left;}

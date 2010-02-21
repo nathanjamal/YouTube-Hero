@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Youtube Hero</title>
+    <title>Youtube Hero | Mix youtube videos with a crossfader</title>
     
     <link href="css/madstylz.css" rel="stylesheet" type="text/css" />
     <link type="text/css" href="css/vader/vader.css" rel="stylesheet" />
@@ -16,9 +16,9 @@
     
      <script type="text/javascript">
          $(document).ready(function() {
- 
+
              if (BrowserDetect.browser == "Explorer") {
-                 $.fn.colorbox({ open: true, width: "404px", height: "250px", inline: true, href: "#eireally" });
+                 $("#eireally").show();
              }
 
 
@@ -131,6 +131,7 @@
 </head>
 <body style="text-align: -moz-center;">
   
+  
     <form id="form1" runat="server" >
     <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true"></asp:ScriptManager>
     <div>
@@ -230,16 +231,14 @@
     <asp:Button ID="Button1" runat="server" Text="Button" />
     </div>
     
-  <div class="hidden">
+
   <div id="eireally">
+  <img id="closeIEImg" class="closeIEImg" src="img/closebox.gif" title="close" alt="" />  
   <p><strong>IE... &nbsp;&nbsp;Really?<br /> I thought you were better then that</strong></p>
-  <br />
   <p>Oh well i guess no ones perfect.<br />But seriously you should go and get a real browser like:</p>
-  <br />
   <p><a id="crome" target="_blank" href="http://www.google.co.uk/chrome">Chrome</a>, <a id="firefox" target="_blank" href="http://www.getfirefox.com">FireFox</a> or <a id="safari" target="_blank" href="http://www.apple.com/safari/">Safari</a>.</p>
   </div>
-  
-  </div>
+
   
    <a id="waih" href="http://weareinternethipsters.tumblr.com/" target="_blank">
   <img src="img/internethipsters.png" alt="We are Internet Hipsters" />
@@ -248,6 +247,15 @@
     
     </form>
 
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-12217895-3");
+pageTracker._trackPageview();
+} catch(err) {}</script>
 </body>
 
     <script type="text/javascript" src="js/ui.core.js"></script>
