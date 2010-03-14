@@ -3,7 +3,6 @@ Imports System.Xml
 Imports System.Net
 Imports System.Net.Sockets
 Imports System.Net.Mail
-Imports System.IO
 
 
 Partial Class _Default
@@ -112,41 +111,6 @@ Partial Class _Default
 
     End Function
 
-    <System.Web.Services.WebMethod()> _
-    Public Shared Function TweetIt(ByVal strMessage As String)
-
-        Dim strUser As String = "YouTube_Hero"
-        Dim strPass As String = "3stacks"
-        Dim strTweet As String = HttpContext.Current.Server.HtmlEncode("status=" & strMessage)
-
-        'convert post variable to byte array for transmission purposes
-        Dim bRequest As Byte() = System.Text.Encoding.ASCII.GetBytes(strTweet)
-
-        'create HttpWebRequest to status update API resource
-        Dim objRequest As HttpWebRequest = WebRequest.Create("http://twitter.com/statuses/update.xml")
-        'pass basic authentication credentials
-        objRequest.Credentials = New NetworkCredential(strUser, strPass)
-        'set method to post and pass request as a form
-        objRequest.Method = "POST"
-        objRequest.ContentType = "application/x-www-form-urlencoded"
-        'tell the server it will not receive a 100 Continue HTTP response
-        objRequest.ServicePoint.Expect100Continue = False
-        'set content length of request
-        objRequest.ContentLength = bRequest.Length
-
-        'capture the stream (content) of the request
-        Dim objStream As Stream = objRequest.GetRequestStream()
-        'put the bytes into request
-        objStream.Write(bRequest, 0, bRequest.Length)
-        'close the stream to complete the request
-        objStream.Close()
-
-        Dim objResponse As WebResponse = objRequest.GetResponse()
-        Dim objReader As New StreamReader(objResponse.GetResponseStream())
-        ' Dim Label1 As Label =
-        ' Label1.Text = objReader.ReadToEnd()
-
-    End Function
 
     <System.Web.Services.WebMethod()> _
     Public Shared Function sendMail(ByVal what As String)

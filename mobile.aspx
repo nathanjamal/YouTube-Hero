@@ -1,4 +1,4 @@
-﻿<%@ Page Language="VB" AutoEventWireup="false" CodeFile="Default.aspx.vb" Inherits="_Default" %>
+﻿<%@ Page Language="VB" AutoEventWireup="false" CodeFile="mobile.aspx.vb" Inherits="_Default" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -17,9 +17,10 @@
      <script type="text/javascript">
          $(document).ready(function() {
 
-           //  if (BrowserDetect.browser == "Explorer") {
-           //      $("#eireally").show();
-           //  }
+             if (BrowserDetect.browser == "Explorer") {
+                 $("#eireally").show();
+             }
+
 
              //randon string
              function random() {
@@ -72,7 +73,7 @@
                                  var thumb = $(this).find('thumb').text();
                                  var file = $(this).find('vidurl').text();
                                  var altTag = $(this).find('altTag').text();
-                                 $('#list').append("<li title='" + title + "' id='" + file + "'><img src='" + thumb + "' height='40px' alt='" + altTag + "'/><p>" + title + "</p></li>");
+                                 $('#list').append("<li title='" + file + "' ><img src='" + thumb + "' height='40px' alt='" + altTag + "'/><p>" + title + "</p></li>");
                                  $('li').draggable({ cursor: 'crosshair', revert: 'invalid', cursorAt: { top: 20, left: 165} });
                                  i++;
                              }
@@ -105,6 +106,15 @@
                  }
              });
 
+             $('#feedbackSubmit').click(function() {
+                 $(this).html('Sending...');
+                 var feed = document.getElementById('feedbackArea');
+
+                 //Call server side function
+                 PageMethods.sendMail(feed.value, sent2, fail2);
+             });
+             function sent2() { $('#feedbackSubmit').html('Sent'); }
+             function fail2() { $('#feedbackSubmit').html('Sorry, it broke :('); setTimeout("$('#feedbackSubmit').html('Submit');", 2000); }
 
              fieldClick = 0;
 
@@ -115,10 +125,11 @@
                  }
              });
 
+
          });
      </script>
 </head>
-<body id="body" style="text-align: -moz-center;">
+<body style="text-align: -moz-center;">
   
   
     <form id="form1" runat="server" >
@@ -164,13 +175,13 @@
 //player1
       var params = { allowScriptAccess: "always", "wmode": "transparent" };
     var atts = { id: "myytplayer", "wmode":"transparent" };
-    swfobject.embedSWF("http://www.youtube.com/v/_15fQIYgIaE?enablejsapi=1&playerapiid=ytplayer",
+    swfobject.embedSWF("http://www.youtube.com/v/3Ii8m1jgn_M?enablejsapi=1&playerapiid=ytplayer",
                        "ytapiplayer", "45%", "100%", "8", null, null, params, atts);
 
 //player2
     var params = { allowScriptAccess: "always", "wmode": "transparent" };
     var atts = { id: "myytplayer2", "wmode": "opaque" };
-    swfobject.embedSWF("http://www.youtube.com/v/tDZy6-fMCw4?enablejsapi=1&playerapiid=ytplayer",
+    swfobject.embedSWF("http://www.youtube.com/v/hdWxo3e3Kzk?enablejsapi=1&playerapiid=ytplayer",
                        "ytapiplayer2", "45%", "100%", "8", null, null, params, atts);
                        
       
@@ -209,15 +220,9 @@
     
     
     <div id="feedback" class="feedback">
-    <div id="feedbackTab"><a title="0" href="#">The Wall</a></div>
-    
-    <div id="twitterCont">
-    <ul id="twitter_update_list">
-    <li>aw snap! some fool broke the wall. I'll try get it fixed soon</li>
-    </ul>
-    </div>
-    <!--<textarea id="feedbackArea">Let me know what you think e.g. "haha u r gay"</textarea>-->
-    <input id="feedbackField" type="text" maxlength="140" /><a href="#" id="feedbackSubmit">Submit</a>
+    <div id="feedbackTab"><a title="0" href="#">Feedback</a></div>
+    <textarea id="feedbackArea">Let me know what you think e.g. "haha u r gay"</textarea>
+    <a href="#" id="feedbackSubmit">Submit</a>
     
     </div>
     
@@ -233,17 +238,7 @@
   <p><a id="crome" target="_blank" href="http://www.google.co.uk/chrome">Chrome</a>, <a id="firefox" target="_blank" href="http://www.getfirefox.com">FireFox</a> or <a id="safari" target="_blank" href="http://www.apple.com/safari/">Safari</a>.</p>
   </div>
 
-<!-- AddThis Button BEGIN -->
-<div style="position:absolute;left:43%;bottom:4px;" class="addthis_toolbox addthis_default_style">
-<a href="http://www.addthis.com/bookmark.php?v=250&amp;username=nathanjamal" class="addthis_button_compact">Share</a>
-<span class="addthis_separator">|</span>
-<a class="addthis_button_facebook"></a>
-<a class="addthis_button_digg"></a>
-<a class="addthis_button_google"></a>
-<a class="addthis_button_twitter"></a>
-</div>
-<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=nathanjamal"></script>
-<!-- AddThis Button END -->
+<a id="diggButt" class="DiggThisButton" href="http://digg.com/submit">('<img src="http://digg.com/img/diggThisCompact.png" height="18" width="120" alt="DiggThis" />’)</a>
 
   
    <a id="waih" href="http://weareinternethipsters.tumblr.com/" target="_blank">
@@ -262,19 +257,13 @@ try {
 var pageTracker = _gat._getTracker("UA-12217895-3");
 pageTracker._trackPageview();
 } catch(err) {}</script>
-
-
 </body>
 
-<script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
-<script type="text/javascript" src="http://twitter.com/statuses/user_timeline/YouTube_Hero.json?callback=twitterCallback2"></script>
+
+<script src="http://digg.com/tools/diggthis.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/ui.core.js"></script>
     <script type="text/javascript" src="js/ui.slider.js"></script>
     <script type="text/javascript" src="js/ui.draggable.js"></script>
     <script type="text/javascript" src="js/ui.droppable.js"></script>
-      <script src="js/jquery.mousescroller.js" type="text/javascript"></script>
 <script src="js/someFunctions.js" type="text/javascript"></script>
-
-
-
 </html>
